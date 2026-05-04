@@ -29,3 +29,5 @@ dist-ssr
 .env.*.local
 
 src/assets/HYT Global Institute Website Centralized Files-20260504T022615Z-3-001
+
+.firebase
