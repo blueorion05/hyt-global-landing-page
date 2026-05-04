@@ -12,7 +12,7 @@ export default function Hero() {
       }}
     >
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl ml-8">
           {/* TESDA Badge */}
           <div className="inline-flex items-center gap-2 bg-blue-800/50 backdrop-blur px-4 py-2 rounded-full mb-8 border border-blue-400/30">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
