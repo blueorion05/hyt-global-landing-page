@@ -96,12 +96,15 @@ function HeroSlideshow() {
   return (
     <div className="relative h-96 rounded-xl overflow-hidden shadow-lg">
       {slides.map((src, i) => (
-        <img
-          key={i}
-          src={src}
-          alt={`slide-${i}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === current ? 'opacity-100' : 'opacity-0'}`}
-        />
+        <div key={i} className={`absolute inset-0 transition-opacity duration-700 ${i === current ? 'opacity-100' : 'opacity-0'}`}>
+          <img
+            src={src}
+            alt={`slide-${i}`}
+            className="w-full h-full object-cover"
+          />
+          {/* Minimal blue gradient filter */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-900/15"></div>
+        </div>
       ))}
     </div>
   )

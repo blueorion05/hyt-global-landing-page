@@ -1,44 +1,44 @@
 import React from 'react'
 
 export const GraduationIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M12 3L1 9l11 6 9-4.909V17h2V9L12 3z" />
-  </svg>
-)
-
-export const GlobeIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.93 6H16a15.9 15.9 0 00-1.2-3.5 8.02 8.02 0 014.13 3.5zM12 4.07c.7 1.02 1.2 2.36 1.5 3.93H10.5c.3-1.57.8-2.91 1.5-3.93zM4.07 12H8c0-1.24.24-2.43.67-3.5A8.02 8.02 0 004.07 12zM12 19.93c-.7-1.02-1.2-2.36-1.5-3.93h3c-.3 1.57-.8 2.91-1.5 3.93zM16 18a15.9 15.9 0 001.2-3.5H8.8A15.9 15.9 0 0010 18h6zM12 16.07c-.3-1.57-.8-2.91-1.5-3.93h3c-.7 1.02-1.2 2.36-1.5 3.93z" />
-  </svg>
-)
-
-export const ToolsIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M21.7 13.35l-2.35-2.35a2 2 0 00-2.83 0l-.88.88-1.95-1.95 2.06-2.06a2 2 0 000-2.83L14.65 2.3 12 4.95 9.35 2.3 7.95 3.7l2.06 2.06-1.95 1.95-.88-.88a2 2 0 00-2.83 0L2.3 10.95 4.95 13.6 2.3 16.25l2.35 2.35a2 2 0 002.83 0l.88-.88 1.95 1.95-2.06 2.06a2 2 0 002.83 2.83L12 21.7l2.65 2.65 1.4-1.4-2.06-2.06 1.95-1.95.88.88a2 2 0 002.83 0l2.35-2.35L19.05 13.6l2.65-2.65z" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet" aria-hidden="true" {...props}>
+    <path d="M22 10.5V5.5c0-.83-.67-1.5-1.5-1.5h-17C2.67 4 2 4.67 2 5.5v5c0 2.5 2 4.5 4.5 4.5.5 0 1-.1 1.5-.2v5.3h13v-5.3c.5.1 1 .2 1.5.2 2.5 0 4.5-2 4.5-4.5zm-10 6.2l-7-4.5v-3l7 4.5v3zm0-7.2L3 5.5h18L12 9.5z" />
   </svg>
 )
 
 export const BuildingIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M3 21h18V3H3v18zm2-2v-4h4v4H5zm6 0v-4h4v4h-4zm6 0v-4h2v4h-2zM5 7h2v2H5V7zm4 0h2v2H9V7zm4 0h2v2h-2V7z" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet" aria-hidden="true" {...props}>
+    <path d="M19 13h-6v10h-2V3h-2v20H9V13H3V4h16v9z" />
+  </svg>
+)
+
+export const GlobeIcon = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet" aria-hidden="true" {...props}>
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" />
+  </svg>
+)
+
+export const ToolsIcon = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet" aria-hidden="true" {...props}>
+    <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.4-.4.4-1.1 0-1.4z" />
   </svg>
 )
 
 export const TrophyIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M17 3H7v2H3v2a4 4 0 004 4h2v3a3 3 0 003 3 3 3 0 003-3v-3h2a4 4 0 004-4V5h-4V3z" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet" aria-hidden="true" {...props}>
+    <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.56 3.61 2.56s2.98-1.06 3.61-2.56C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zm-7 10c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm8-5c0 1.66-1.34 3-3 3h-1c0 .83-.67 1.5-1.5 1.5S14 14.83 14 14h-1c-1.66 0-3-1.34-3-3V8H5v-1h2V5h10v2h2v3z" />
   </svg>
 )
 
 export const BriefcaseIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M10 2H6a2 2 0 00-2 2v3h12V4a2 2 0 00-2-2h-4V2zM4 10v8a2 2 0 002 2h12a2 2 0 002-2v-8H4z" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet" aria-hidden="true" {...props}>
+    <path d="M10 16.5h4v-2h-4v2zM16 4h-1V3h-6v1H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H8V6h8v12z" />
   </svg>
 )
 
 export const HandshakeIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M21 13l-6.5 6.5L8 13l4-4 2.5 2.5L21 13zM3 11l6 6 4-4-6-6-4 4z" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" preserveAspectRatio="xMidYMid meet" aria-hidden="true" {...props}>
+    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4c-1.48 0-2.85.43-4.01 1.17l1.46 1.46C10.21 5.23 11.08 5 12 5c3.04 0 5.5 2.46 5.5 5.5v.5H19c1.66 0 3 1.34 3 3 0 1.13-.64 2.11-1.56 2.62l.98 1.62C23.73 16.51 24 15.3 24 14c0-2.64-2.05-4.78-4.65-4.96zM3 5.5C3 4.12 4.12 3 5.5 3H6v2H5.5C4.67 5 4 5.67 4 6.5V11h2V6.5zM4 20.5h2V12H4z" />
   </svg>
 )
 

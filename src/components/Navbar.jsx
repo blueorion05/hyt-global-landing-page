@@ -75,11 +75,11 @@ export default function Navbar() {
           <button onClick={() => scrollToSection('courses')} className={linkClass}>
             Courses
           </button>
-          <button onClick={() => scrollToSection('admissions')} className={linkClass}>
-            Admissions
-          </button>
           <button onClick={() => scrollToSection('partners')} className={linkClass}>
             Partners
+          </button>
+          <button onClick={() => scrollToSection('admissions')} className={linkClass}>
+            Admissions
           </button>
           <button onClick={() => scrollToSection('contact')} className={linkClass}>
             Contact

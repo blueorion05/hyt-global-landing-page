@@ -1,4 +1,5 @@
-import hytLogo from '../../assets/HYT Global Institute Website Centralized Files-20260504T022615Z-3-001/HYT Global Institute Website Centralized Files/Logo and Partner Companies Logos/HYTLOGO.png'
+import hytFoundationLogo from '../../assets/HYT Global Institute Website Centralized Files-20260504T022615Z-3-001/HYT Global Institute Website Centralized Files/Logo and Partner Companies Logos/HYTLOGO.png'
+import hytLogo from '../../assets/HYT Global Institute Website Centralized Files-20260504T022615Z-3-001/HYT Global Institute Website Centralized Files/Logo and Partner Companies Logos/HYT.png'
 import brainsLogo from '../../assets/HYT Global Institute Website Centralized Files-20260504T022615Z-3-001/HYT Global Institute Website Centralized Files/Logo and Partner Companies Logos/BRAINSLOGO.png'
 import kgcLogo from '../../assets/HYT Global Institute Website Centralized Files-20260504T022615Z-3-001/HYT Global Institute Website Centralized Files/Logo and Partner Companies Logos/KGC.png'
 import klassicLogo from '../../assets/HYT Global Institute Website Centralized Files-20260504T022615Z-3-001/HYT Global Institute Website Centralized Files/Logo and Partner Companies Logos/KLASSIC.png'
@@ -9,6 +10,7 @@ import zcorpLogo from '../../assets/HYT Global Institute Website Centralized Fil
 
 export default function Partners() {
   const partners = [
+    { name: 'HYT Foundation Inc.', logo: hytFoundationLogo },
     { name: 'BRAINS', logo: brainsLogo },
     { name: 'KGC', logo: kgcLogo },
     { name: 'Klassic', logo: klassicLogo },
@@ -32,22 +34,33 @@ export default function Partners() {
           </p>
         </div>
 
-        <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8 border border-gray-100">
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <img src={hytLogo} alt="HYT Global Institute logo" className="h-20 w-auto object-contain" />
-            <p className="text-gray-700 text-center md:text-left">
-              HYT serves as a bridge between high-quality skills training and real workforce demand.
-              Through active institutional partnerships, students gain practical opportunities and stronger career outcomes.
-            </p>
+        <div className="relative mb-12">
+          <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-shrink-0">
+                <img src={hytLogo} alt="HYT Global Institute logo" className="h-24 w-auto object-contain" />
+              </div>
+              <div className="relative flex-1">
+                <p className="text-gray-700 text-center md:text-left leading-relaxed">
+                  HYT serves as a bridge between high-quality skills training and real workforce demand.
+                  Through active institutional partnerships, students gain practical opportunities and stronger career outcomes.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {partners.map((partner) => (
-            <div key={partner.name} className="bg-white border border-gray-200 rounded-xl p-6 h-28 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow">
-              <img src={partner.logo} alt={partner.name + ' logo'} className="max-h-14 w-auto object-contain" />
+        <div>
+          <h3 className="text-center text-lg font-semibold text-gray-900 mb-8">Our Trusted Partners & Brands</h3>
+          <div className="marquee-container rounded-xl">
+            <div className="marquee-content">
+              {[...partners, ...partners].map((partner, index) => (
+                <div key={index} className="flex-shrink-0 w-56 md:w-64 h-40 md:h-48 bg-white rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-all">
+                  <img src={partner.logo} alt={partner.name + ' logo'} className="max-h-24 md:max-h-32 w-auto object-contain px-4" />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

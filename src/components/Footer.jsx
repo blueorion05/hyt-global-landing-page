@@ -20,7 +20,7 @@ export default function Footer() {
                 <div className="mt-4 text-gray-300 text-sm space-y-1">
                   <div>55 Natividad, San Francisco Del Monte, Quezon City</div>
                   <div>0927 894 6416 / (02) 8359 0648</div>
-                  <div>admissions@hytglobalinstitute.com</div>
+                  <div>hytglobalinstituteph@gmail.com</div>
                 </div>
                 <div className="flex gap-3 mt-4">
                   {[
@@ -41,6 +41,12 @@ export default function Footer() {
           {/* Right: Links */}
           <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div>
+              <ul className="space-y-2 text-gray-300">
+                
+              </ul>
+            </div>
+            
+            <div>
               <h4 className="font-bold text-lg mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-300">
                 {['Home', 'Courses', 'Admissions', 'Contact'].map((link, index) => (
@@ -52,20 +58,9 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-bold text-lg mb-4">About Us</h4>
-              <ul className="space-y-2 text-gray-300">
-                {['Benefits', 'Partners', 'News', 'Gallery'].map((link, index) => (
-                  <li key={index}>
-                    <a href="#" className="hover:text-amber-400 transition">{link}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
               <h4 className="font-bold text-lg mb-4">Resources</h4>
               <ul className="space-y-2 text-gray-300">
-                {['LMS Portal', 'Website', 'Career Opportunities', 'Admissions'].map((link, index) => (
+                {['LMS Portal', 'Website'].map((link, index) => (
                   <li key={index}>
                     <a href={link === 'LMS Portal' ? 'https://hytech-ad360.web.app/' : link === 'Website' ? 'https://connectorcore.com' : '#'}
                        target={link === 'LMS Portal' || link === 'Website' ? '_blank' : '_self'}
@@ -82,8 +77,6 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-300 text-sm gap-4">
             <p>© 2026 HYT Global Institute Inc. All rights reserved.</p>
             <div className="flex flex-col md:flex-row gap-6 items-center">
-              <span>Website: connectorcore.com</span>
-              <span>TESDA Accredited • Quezon City, Philippines</span>
             </div>
           </div>
         </div>

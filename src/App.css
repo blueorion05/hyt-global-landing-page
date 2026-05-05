@@ -104,3 +104,36 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
 }
 
+/* High quality image rendering */
+.high-quality-image {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translateZ(0);
+  filter: saturate(1.05);
+}
+
+/* Marquee animation - scroll from right to left */
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  background: white;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 1.5rem;
+  animation: scroll-right-to-left 30s linear infinite;
+  padding: 1rem 0;
+}
+

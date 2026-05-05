@@ -80,7 +80,7 @@ export default function Contact() {
               {
                 icon: <MailIcon className="w-6 h-6 text-amber-500" />,
                 title: 'Email',
-                content: 'info@hytfoundation.org',
+                content: 'connect@hytglobalinstitute.com,\nadmissions@hytglobalinstitute.com,\nhytglobalinstituteph@gmail.com',
               },
               {
                 icon: <PhoneIcon className="w-6 h-6 text-emerald-500" />,
