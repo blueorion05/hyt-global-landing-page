@@ -78,6 +78,9 @@ export default function Navbar() {
           <button onClick={() => scrollToSection('admissions')} className={linkClass}>
             Admissions
           </button>
+          <button onClick={() => scrollToSection('partners')} className={linkClass}>
+            Partners
+          </button>
           <button onClick={() => scrollToSection('contact')} className={linkClass}>
             Contact
           </button>
@@ -110,6 +113,9 @@ export default function Navbar() {
           </button>
           <button onClick={() => scrollToSection('admissions')} className={mobileLinkClass}>
             Admissions
+          </button>
+          <button onClick={() => scrollToSection('partners')} className={mobileLinkClass}>
+            Partners
           </button>
           <button onClick={() => scrollToSection('contact')} className={mobileLinkClass}>
             Contact

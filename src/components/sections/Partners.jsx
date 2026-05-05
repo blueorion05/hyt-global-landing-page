@@ -19,7 +19,7 @@ export default function Partners() {
   ]
 
   return (
-    <section className="py-20 bg-white">
+    <section id="partners" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-blue-900 font-semibold uppercase tracking-wide mb-4">Partnership Network</p>

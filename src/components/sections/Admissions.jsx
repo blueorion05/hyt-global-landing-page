@@ -1,3 +1,5 @@
+import { ClipboardIcon, ChatIcon, ArrowRightIcon } from '../icons'
+
 export default function Admissions() {
   return (
     <section id="admissions" className="py-20 bg-blue-50">
@@ -17,19 +19,19 @@ export default function Admissions() {
           {[
             {
               number: '1',
-              icon: '📋',
+              icon: <ClipboardIcon className="w-10 h-10 text-blue-900" />,
               title: 'Submit Application',
               description: 'Complete the online application form available on our website.',
             },
             {
               number: '2',
-              icon: '📋',
+              icon: <ClipboardIcon className="w-10 h-10 text-blue-900" />,
               title: 'Prepare Requirements',
               description: 'Compile academic transcripts, recommendations, and personal statement.',
             },
             {
               number: '3',
-              icon: '💬',
+              icon: <ChatIcon className="w-10 h-10 text-blue-900" />,
               title: 'Attend Interview',
               description: 'Meet our admissions team for a one-on-one discussion.',
             },
@@ -60,8 +62,9 @@ export default function Admissions() {
 
         {/* Call to Action Button */}
         <div className="text-center">
-          <button className="px-8 py-4 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-800 transition text-lg">
-            Start Your Application →
+          <button onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} className="px-8 py-4 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-800 transition text-lg inline-flex items-center gap-3">
+            <span>Start Your Application</span>
+            <ArrowRightIcon className="w-5 h-5" />
           </button>
         </div>
       </div>

@@ -1,28 +1,6 @@
 import { useState } from 'react'
-
-const MailIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M2.25 4A2.25 2.25 0 004.5 6.25v11.5A2.25 2.25 0 006.75 20h10.5a2.25 2.25 0 002.25-2.25V6.25A2.25 2.25 0 0017.25 4H6.75A2.25 2.25 0 004.5 4zM6 8.5l6 4 6-4" />
-  </svg>
-)
-
-const PhoneIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M2.3 5.5a2 2 0 012.1-1.6l3.2.5a1 1 0 01.9.9l.2 1.9a1 1 0 01-.4.9L6.4 9.9a11 11 0 005.7 5.7l1-1.8a1 1 0 01.9-.4l1.9.2a1 1 0 01.9.9l.5 3.2A2 2 0 0118.5 21h-1A16 16 0 013 6v-1z" />
-  </svg>
-)
-
-const MapIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
-  </svg>
-)
-
-const ClockIcon = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 11h3v-2h-2V7h-2v6z" />
-  </svg>
-)
+import emailjs from '@emailjs/browser'
+import { MailIcon, PhoneIcon, MapIcon, ClockIcon } from '../icons'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -30,6 +8,9 @@ export default function Contact() {
     email: '',
     message: '',
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [modalType, setModalType] = useState('success')
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -38,8 +19,45 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setFormData({ name: '', email: '', message: '' })
+    setIsLoading(true)
+    
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const ADMIN_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ADMIN
+    const AUTOREPLY_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_AUTOREPLY
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    if (!SERVICE_ID || !ADMIN_TEMPLATE_ID || !AUTOREPLY_TEMPLATE_ID || !PUBLIC_KEY) {
+      setIsLoading(false)
+      setModalType('error')
+      setShowModal(true)
+      return
+    }
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      msg: formData.message,
+      to_email: 'hytglobalinstituteph@gmail.com',
+      cc_emails: 'connect@hytglobalinstitute.com,admissions@hytglobalinstitute.com',
+    }
+
+    // Send both templates: admin notification + sender auto-reply
+    Promise.all([
+      emailjs.send(SERVICE_ID, ADMIN_TEMPLATE_ID, templateParams, PUBLIC_KEY),
+      emailjs.send(SERVICE_ID, AUTOREPLY_TEMPLATE_ID, templateParams, PUBLIC_KEY),
+    ])
+      .then(() => {
+        setIsLoading(false)
+        setModalType('success')
+        setShowModal(true)
+        setFormData({ name: '', email: '', message: '' })
+      })
+      .catch((err) => {
+        console.error('EmailJS error:', err)
+        setIsLoading(false)
+        setModalType('error')
+        setShowModal(true)
+      })
   }
 
   return (
@@ -152,14 +170,65 @@ export default function Contact() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-3 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 transition text-center"
+                disabled={isLoading}
+                className={`w-full py-3 font-semibold rounded-lg transition text-center flex items-center justify-center gap-2 ${
+                  isLoading
+                    ? 'bg-blue-600 text-white cursor-not-allowed'
+                    : 'bg-blue-900 text-white hover:bg-blue-800'
+                }`}
               >
-                Send Message
+                {isLoading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </div>
         </div>
       </div>
+
+      {/* Confirmation Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-lg max-w-sm w-full p-6 animate-in">
+            <div className="flex flex-col items-center text-center">
+              {modalType === 'success' ? (
+                <>
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
+                  <p className="text-gray-600 mb-6">Thank you for reaching out. We'll get back to you soon.</p>
+                </>
+              ) : (
+                <>
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Oops!</h3>
+                  <p className="text-gray-600 mb-6">
+                    Unable to send message right now. Please try again or email hytglobalinstituteph@gmail.com directly.
+                  </p>
+                </>
+              )}
+              <button
+                onClick={() => setShowModal(false)}
+                className="w-full py-2 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 transition"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

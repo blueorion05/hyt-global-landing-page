@@ -1,4 +1,5 @@
 import baristaImg from '../../assets/images/IMG_2870.JPG'
+import { ArrowRightIcon } from '../icons'
 import frontOfficeImg from '../../assets/images/JDM00601.JPG'
 import housekeepingImg from '../../assets/images/JDM01220.JPG'
 import eventsImg from '../../assets/images/IMG_2904.JPG'
@@ -92,9 +93,10 @@ export default function CoursesSection() {
                 </p>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">{course.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{course.description}</p>
-                <a href="#" className="text-blue-900 font-semibold text-sm hover:text-amber-500 transition">
-                  View Details →
-                </a>
+                <button onClick={() => document.getElementById('admissions').scrollIntoView({ behavior: 'smooth' })} className="text-blue-900 font-semibold text-sm hover:text-amber-500 transition inline-flex items-center gap-2">
+                  <span>View Details</span>
+                  <ArrowRightIcon className="w-4 h-4" />
+                </button>
               </div>
             </div>
           ))}
