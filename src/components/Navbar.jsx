@@ -57,7 +57,7 @@ export default function Navbar() {
     <nav className={`sticky top-0 z-50 transition-colors duration-300 ${isTransparent ? 'bg-transparent backdrop-blur-sm' : 'bg-white shadow-md'}`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <img src={hytLogo} alt="HYT Global Institute Inc. logo" className="w-10 h-10 object-contain" />
+          {!isTransparent && <img src={hytLogo} alt="HYT Global Institute Inc. logo" className="w-10 h-10 object-contain" />}
           <span className="font-bold text-xl">
             <span className={brandTextClass}>HYT</span>{' '}
             <span className={brandSubClass}>Global Institute Inc.</span>

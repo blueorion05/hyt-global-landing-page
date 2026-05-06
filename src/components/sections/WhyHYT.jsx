@@ -40,7 +40,7 @@ export default function WhyHYT() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-amber-400 font-semibold uppercase tracking-wide mb-4">Why HYT</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
             Why students <span className="text-amber-400">choose us</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
@@ -55,6 +55,7 @@ export default function WhyHYT() {
               key={index}
               className="bg-blue-800/40 backdrop-blur border border-blue-700 p-8 rounded-xl hover:bg-blue-800/60 transition"
             >
+              <div className="mb-4">{feature.icon}</div>
               <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
               <p className="text-gray-300">{feature.description}</p>
             </div>

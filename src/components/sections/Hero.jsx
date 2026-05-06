@@ -1,13 +1,6 @@
 import { useState, useEffect } from 'react'
 import heroBackground from '../../assets/HYT Global Institute Website Centralized Files-20260504T022615Z-3-001/HYT Global Institute Website Centralized Files/Contact Us/Background.jpg'
-import baristaImg from '../../assets/images/IMG_2870.JPG'
-import eventsImg from '../../assets/images/IMG_2904.JPG'
-import cybersecurityImg from '../../assets/images/photo_6154425571392294219_y.jpg'
-import housekeepingImg from '../../assets/images/JDM01220.JPG'
-import frontOfficeImg from '../../assets/images/JDM00601.JPG'
-import caregivingImg from '../../assets/images/JDM01305.JPG'
-import hilotImg from '../../assets/images/JDM01319.JPG'
-import bookkeepingImg from '../../assets/images/IMG_2889.JPG'
+import hytLogo from '../../assets/HYT Global Institute Website Centralized Files-20260504T022615Z-3-001/HYT Global Institute Website Centralized Files/Logo and Partner Companies Logos/HYT.png'
 
 export default function Hero() {
   return (
@@ -20,10 +13,10 @@ export default function Hero() {
         backgroundPosition: 'center',
       }}
     >
-      <div className="container ml-8 mr-8 mx-auto px-4">
+      <div className="container mx-auto px-4 md:ml-8 lg:ml-8">
         <div className="flex flex-col lg:flex-row items-center gap-8">
           <div className="w-full lg:w-1/2">
-            <div className="max-w-2xl pl-6 sm:pl-8 md:pl-12 lg:pl-0">
+            <div className="max-w-2xl">
           {/* TESDA Badge */}
           <div className="inline-flex items-center gap-2 bg-blue-800/50 backdrop-blur px-4 py-2 rounded-full mb-8 border border-blue-400/30">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -33,7 +26,7 @@ export default function Hero() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Your Pathway to
             <span className="block text-amber-400 mt-2">Global Excellence</span>
           </h1>
@@ -57,18 +50,18 @@ export default function Hero() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-20 pt-12 border-t border-white">
+          <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20 pt-8 sm:pt-10 md:pt-12 border-t border-white">
             <div>
-              <div className="text-4xl font-bold text-amber-400 mb-2">20+</div>
-              <p className="text-gray-300 font-medium">Programs</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-400 mb-2">20+</div>
+              <p className="text-gray-300 font-medium text-sm sm:text-base">Programs</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-amber-400 mb-2">95%</div>
-              <p className="text-gray-300 font-medium">Cert. Pass Rate</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-400 mb-2">95%</div>
+              <p className="text-gray-300 font-medium text-sm sm:text-base">Cert. Pass Rate</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-amber-400 mb-2">10+</div>
-              <p className="text-gray-300 font-medium">Global Partners</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-amber-400 mb-2">10+</div>
+              <p className="text-gray-300 font-medium text-sm sm:text-base">Global Partners</p>
             </div>
             </div>
           </div>
@@ -76,36 +69,14 @@ export default function Hero() {
 
           {/* Slideshow - visible on large screens */}
           <div className="hidden lg:block w-full lg:w-1/2">
-            <HeroSlideshow />
+            <img
+              src={hytLogo}
+              alt="HYT Global Institute Inc."
+              className="w-50 h-50 object-cover"
+            />
           </div>
         </div>
       </div>
     </section>
-  )
-}
-
-function HeroSlideshow() {
-  const slides = [baristaImg, frontOfficeImg, housekeepingImg, eventsImg, caregivingImg, hilotImg, cybersecurityImg, bookkeepingImg]
-  const [current, setCurrent] = useState(0)
-
-  useEffect(() => {
-    const t = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 3500)
-    return () => clearInterval(t)
-  }, [])
-
-  return (
-    <div className="relative h-96 rounded-xl overflow-hidden shadow-lg">
-      {slides.map((src, i) => (
-        <div key={i} className={`absolute inset-0 transition-opacity duration-700 ${i === current ? 'opacity-100' : 'opacity-0'}`}>
-          <img
-            src={src}
-            alt={`slide-${i}`}
-            className="w-full h-full object-cover"
-          />
-          {/* Minimal blue gradient filter */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-900/15"></div>
-        </div>
-      ))}
-    </div>
   )
 }

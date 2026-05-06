@@ -22,7 +22,7 @@ export default function RecentNews() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-blue-900 font-semibold uppercase tracking-wide mb-4">Latest Updates</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Recent <span className="text-amber-500">HYT News</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">

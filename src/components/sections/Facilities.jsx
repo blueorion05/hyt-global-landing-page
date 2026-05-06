@@ -93,7 +93,7 @@ export default function Facilities() {
           {/* Content */}
           <div>
             <p className="text-blue-900 font-semibold uppercase tracking-wide mb-4">Facilities</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
               A learning environment that inspires
             </h2>
             <p className="text-gray-600 text-lg mb-8">

@@ -10,7 +10,7 @@ import cybersecurityImg from '../../assets/images/photo_6154425571392294219_y.jp
 import bookkeepingImg from '../../assets/images/IMG_2889.JPG'
 
 export default function CoursesSection() {
-  const [selectedCourse, setSelectedCourse] = useState(null)
+  const [flippedIndex, setFlippedIndex] = useState(null)
 
   const courses = [
     {
@@ -31,7 +31,6 @@ export default function CoursesSection() {
         ],
         duration: '6 months (240 hours)',
         requirements: 'High School Diploma or equivalent',
-        careerPath: 'Restaurant Manager, Banquet Coordinator, Bartender, Food & Beverage Supervisor',
       },
     },
     {
@@ -53,7 +52,6 @@ export default function CoursesSection() {
         ],
         duration: '6 months (240 hours)',
         requirements: 'High School Diploma or equivalent',
-        careerPath: 'Front Desk Manager, Guest Services Manager, Hotel Receptionist, Concierge',
       },
     },
     {
@@ -75,7 +73,6 @@ export default function CoursesSection() {
         ],
         duration: '6 months (240 hours)',
         requirements: 'High School Diploma or equivalent',
-        careerPath: 'Housekeeping Manager, Executive Housekeeper, Room Inspector, Laundry Supervisor',
       },
     },
     {
@@ -97,7 +94,6 @@ export default function CoursesSection() {
         ],
         duration: '6 months (240 hours)',
         requirements: 'High School Diploma or equivalent',
-        careerPath: 'Event Manager, Event Coordinator, Meeting Planner, Corporate Event Specialist',
       },
     },
     {
@@ -119,7 +115,6 @@ export default function CoursesSection() {
         ],
         duration: '4 months (160 hours)',
         requirements: 'High School Diploma or equivalent',
-        careerPath: 'Caregiver, Nursing Assistant, Home Health Aide, Senior Care Specialist',
       },
     },
     {
@@ -141,7 +136,6 @@ export default function CoursesSection() {
         ],
         duration: '6 months (240 hours)',
         requirements: 'High School Diploma or equivalent',
-        careerPath: 'Wellness Therapist, Spa Manager, Mobile Massage Therapist, Wellness Consultant',
       },
     },
     {
@@ -163,7 +157,6 @@ export default function CoursesSection() {
         ],
         duration: '8 months (320 hours)',
         requirements: 'High School Diploma or equivalent',
-        careerPath: 'Cybersecurity Analyst, IT Support Specialist, Network Administrator, Security Engineer',
       },
     },
     {
@@ -185,20 +178,29 @@ export default function CoursesSection() {
         ],
         duration: '6 months (240 hours)',
         requirements: 'High School Diploma or equivalent',
-        careerPath: 'Bookkeeper, Accounting Clerk, Payroll Specialist, Financial Analyst',
       },
     },
   ]
+
+  const handleFlip = (index) => {
+    setFlippedIndex(flippedIndex === index ? null : index)
+  }
+
+  const handleInquireNow = (e) => {
+    e.stopPropagation()
+    setFlippedIndex(null)
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <section id="courses" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <p className="text-blue-900 font-semibold uppercase tracking-wide mb-4">Programs</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <p className="text-blue-900 font-semibold uppercase tracking-wide mb-4 text-sm sm:text-base">Programs</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Courses <span className="text-blue-900">offered</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-2">
             A wide range of TESDA and non-TESDA programs designed to launch your career.
           </p>
         </div>
@@ -206,121 +208,116 @@ export default function CoursesSection() {
         {/* Courses Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {courses.map((course, index) => (
-            <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition group flex flex-col h-full">
-              {/* Course Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
-                />
-              </div>
+            <div
+              key={index}
+              className="h-96 cursor-pointer"
+              onClick={() => handleFlip(index)}
+            >
+              <div className={`flip-card ${flippedIndex === index ? 'flipped' : ''}`}>
+                <div className="flip-card-inner">
+                  {/* Front of card */}
+                  <div className="flip-card-front bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition flex flex-col">
+                    {/* Course Image */}
+                    <div className="relative h-44 overflow-hidden flex-shrink-0">
+                      <img
+                        src={course.image}
+                        alt={course.title}
+                        className="w-full h-full object-cover hover:scale-105 transition duration-300"
+                      />
+                    </div>
 
-              {/* Course Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <p className="text-amber-500 text-sm font-semibold uppercase tracking-wide mb-2">
-                  {course.category}
-                </p>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{course.title}</h3>
-                <p className="text-gray-600 text-sm mb-6 flex-1">{course.description}</p>
-                <button onClick={() => setSelectedCourse(course)} className="text-blue-900 font-semibold text-sm hover:text-amber-500 transition inline-flex items-center gap-2">
-                  <span>View Details</span>
-                  <ArrowRightIcon className="w-4 h-4" />
-                </button>
+                    {/* Course Content */}
+                    <div className="p-6 flex flex-col flex-1 justify-between">
+                      <div>
+                        <p className="text-amber-500 text-sm font-semibold uppercase tracking-wide mb-2">
+                          {course.category}
+                        </p>
+                        <h3 className="text-lg font-bold text-gray-900 mb-3">{course.title}</h3>
+                        <p className="text-gray-600 text-sm line-clamp-3">{course.description}</p>
+                      </div>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleFlip(index)
+                        }}
+                        className="text-blue-900 font-semibold text-sm hover:text-amber-500 transition inline-flex items-center gap-2 mt-4"
+                      >
+                        <span>View Details</span>
+                        <ArrowRightIcon className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Back of card */}
+                  <div className="flip-card-back bg-white rounded-xl overflow-hidden shadow-lg">
+                    <div className="p-6 pb-8 h-full flex flex-col">
+                      <h3 className="text-lg font-bold text-gray-900 mb-4">{course.title}</h3>
+
+                      {/* Overview */}
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-gray-900 text-sm mb-1">Overview</h4>
+                        <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
+                          {course.details.overview}
+                        </p>
+                      </div>
+
+                      {/* What You'll Learn */}
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-gray-900 text-sm mb-2">What You'll Learn</h4>
+                        <ul className="space-y-1">
+                          {course.details.whatYouLearn.slice(0, 3).map((item, idx) => (
+                            <li key={idx} className="text-gray-600 text-xs">
+                              <span className="text-blue-900 font-bold">•</span> {item}
+                            </li>
+                          ))}
+                          {course.details.whatYouLearn.length > 3 && (
+                            <li className="text-gray-500 text-xs italic">
+                              +{course.details.whatYouLearn.length - 3} more...
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+
+                      {/* Course Details */}
+                      <div className="mb-4">
+                        <div className="grid grid-cols-2 gap-2 text-xs">
+                          <div>
+                            <p className="font-semibold text-gray-900">Duration</p>
+                            <p className="text-gray-600">{course.details.duration}</p>
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-900">Requirements</p>
+                            <p className="text-gray-600 line-clamp-2">{course.details.requirements}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Buttons */}
+                      <div className="flex gap-2 mt-auto">
+                        <button
+                          onClick={handleInquireNow}
+                          className="flex-1 py-2 bg-blue-900 text-white font-semibold text-sm rounded-lg hover:bg-blue-800 transition"
+                        >
+                          Inquire Now
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleFlip(index)
+                          }}
+                          className="flex-1 py-2 border-2 border-gray-300 text-gray-900 font-semibold text-sm rounded-lg hover:border-gray-400 transition"
+                        >
+                          Back
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Course Details Modal */}
-      {selectedCourse && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            {/* Modal Header */}
-            <div className="relative h-64 overflow-hidden">
-              <img
-                src={selectedCourse.image}
-                alt={selectedCourse.title}
-                className="w-full h-full object-cover"
-              />
-              <button
-                onClick={() => setSelectedCourse(null)}
-                className="absolute top-4 right-4 bg-white text-gray-900 rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-gray-100 transition"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Modal Content */}
-            <div className="p-8">
-              <p className="text-amber-500 font-semibold uppercase tracking-wide mb-2">
-                {selectedCourse.category}
-              </p>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{selectedCourse.title}</h2>
-              <p className="text-gray-700 text-lg leading-relaxed mb-8">{selectedCourse.description}</p>
-
-              {/* Overview Section */}
-              <div className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Overview</h3>
-                <p className="text-gray-600 text-base leading-relaxed">{selectedCourse.details.overview}</p>
-              </div>
-
-              {/* What You'll Learn Section */}
-              <div className="mb-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">What You'll Learn</h3>
-                <ul className="space-y-2">
-                  {selectedCourse.details.whatYouLearn.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-600">
-                      <span className="text-blue-900 font-bold mt-1">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Course Details Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">Duration</h4>
-                  <p className="text-gray-600">{selectedCourse.details.duration}</p>
-                </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">Requirements</h4>
-                  <p className="text-gray-600">{selectedCourse.details.requirements}</p>
-                </div>
-              </div>
-
-              {/* Career Path Section */}
-              <div className="mb-8 bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-2">Career Path</h4>
-                <p className="text-gray-600">{selectedCourse.details.careerPath}</p>
-              </div>
-
-              {/* Buttons */}
-              <div className="flex gap-4">
-                <button
-                  onClick={() => {
-                    setSelectedCourse(null)
-                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })
-                  }}
-                  className="flex-1 py-3 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-800 transition"
-                >
-                  Inquire Now
-                </button>
-                <button
-                  onClick={() => setSelectedCourse(null)}
-                  className="flex-1 py-3 border-2 border-gray-300 text-gray-900 font-semibold rounded-lg hover:border-gray-400 transition"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   )
 }

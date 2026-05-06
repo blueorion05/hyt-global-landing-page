@@ -16,7 +16,7 @@ export default function CampusGallery() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-blue-900 font-semibold uppercase tracking-wide mb-4">Campus Spaces</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Explore the <span className="text-blue-900">HYT Campus</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">

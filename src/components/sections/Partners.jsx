@@ -25,7 +25,7 @@ export default function Partners() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
           <p className="text-blue-900 font-semibold uppercase tracking-wide mb-4">Partnership Network</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Trusted by <span className="text-blue-900">Industry Partners</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
@@ -34,14 +34,14 @@ export default function Partners() {
           </p>
         </div>
 
-        <div className="relative mb-12">
-          <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
-            <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="relative mb-12 mx-auto max-w-4xl">
+          <div className="bg-gray-50 rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-100">
+            <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8">
               <div className="flex-shrink-0">
-                <img src={hytLogo} alt="HYT Global Institute logo" className="h-24 w-auto object-contain" />
+                <img src={hytLogo} alt="HYT Global Institute logo" className="h-20 sm:h-24 w-auto object-contain" />
               </div>
               <div className="relative flex-1">
-                <p className="text-gray-700 text-center md:text-left leading-relaxed">
+                <p className="text-gray-700 text-center md:text-left leading-relaxed text-sm sm:text-base">
                   HYT serves as a bridge between high-quality skills training and real workforce demand.
                   Through active institutional partnerships, students gain practical opportunities and stronger career outcomes.
                 </p>
@@ -51,12 +51,12 @@ export default function Partners() {
         </div>
 
         <div>
-          <h3 className="text-center text-lg font-semibold text-gray-900 mb-8">Our Trusted Partners & Brands</h3>
+          <h3 className="text-center text-base sm:text-lg font-semibold text-gray-900 mb-6 sm:mb-8">Our Trusted Partners & Brands</h3>
           <div className="marquee-container rounded-xl">
             <div className="marquee-content">
               {[...partners, ...partners].map((partner, index) => (
-                <div key={index} className="flex-shrink-0 w-56 md:w-64 h-40 md:h-48 bg-white rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-all">
-                  <img src={partner.logo} alt={partner.name + ' logo'} className="max-h-24 md:max-h-32 w-auto object-contain px-4" />
+                <div key={index} className="flex-shrink-0 w-40 sm:w-56 md:w-64 h-32 sm:h-40 md:h-48 bg-white rounded-lg flex items-center justify-center shadow-sm hover:shadow-md transition-all">
+                  <img src={partner.logo} alt={partner.name + ' logo'} className="max-h-16 sm:max-h-24 md:max-h-32 w-auto object-contain px-4" />
                 </div>
               ))}
             </div>

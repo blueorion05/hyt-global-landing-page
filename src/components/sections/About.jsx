@@ -24,7 +24,7 @@ export default function About() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-amber-500 font-semibold uppercase tracking-wide mb-4">About HYT Global</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Shaping Bright Futures
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">Shaping Bright Futures
             <span className="block text-blue-900">Since 2025</span>
           </h2>
         </div>

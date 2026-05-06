@@ -1,16 +1,16 @@
-import { ClipboardIcon, ChatIcon, ArrowRightIcon } from '../icons'
+import { ChatIcon, ArrowRightIcon, DocumentIcon, InterviewIcon } from '../icons'
 
 export default function Admissions() {
   const steps = [
     {
       number: '1',
-      icon: <ClipboardIcon className="w-12 h-12 text-blue-900" />,
-      title: 'Submit Your Application',
-      description: 'Complete the online application form available on our website: www.hytglobalinstitute.com',
+      icon: <ChatIcon className="w-12 h-12 text-blue-900" />,
+      title: 'Send Us a Message',
+      description: 'Send us a message through our contact form to express your interest and ask any questions you may have about the admissions process or our programs.',
     },
     {
       number: '2',
-      icon: <ClipboardIcon className="w-12 h-12 text-blue-900" />,
+      icon: <DocumentIcon className="w-12 h-12 text-blue-900" />,
       title: 'Prepare Required Documents',
       items: [
         'Academic transcripts from the past school year.',
@@ -20,7 +20,7 @@ export default function Admissions() {
     },
     {
       number: '3',
-      icon: <ChatIcon className="w-12 h-12 text-blue-900" />,
+      icon: <InterviewIcon className="w-12 h-12 text-blue-900" />,
       title: 'Attend an Interview',
       description: 'A one-on-one meeting with our admissions team to discuss your aspirations and suitability for HYT Skill Builders International.',
     },
@@ -31,7 +31,7 @@ export default function Admissions() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-blue-900 font-semibold uppercase tracking-wide mb-4">Admissions Process</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Simple <span className="text-blue-900">3-step</span> process
           </h2>
           <p className="text-gray-600 text-lg max-w-4xl mx-auto">

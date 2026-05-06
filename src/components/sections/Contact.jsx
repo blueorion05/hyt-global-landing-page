@@ -65,7 +65,7 @@ export default function Contact() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-blue-900 font-semibold uppercase tracking-wide mb-4">Get in Touch</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Contact <span className="text-blue-900">HYT Global</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -76,12 +76,29 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-6">
+            {/* Email Section */}
+            <div className="bg-blue-50 rounded-xl p-6 flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <MailIcon className="w-6 h-6 text-amber-500" />
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-3">Email</h3>
+                <div className="space-y-2">
+                  <a href="mailto:connect@hytglobalinstitute.com" className="block text-gray-600 hover:text-blue-900 hover:underline transition">
+                    connect@hytglobalinstitute.com
+                  </a>
+                  <a href="mailto:admissions@hytglobalinstitute.com" className="block text-gray-600 hover:text-blue-900 hover:underline transition">
+                    admissions@hytglobalinstitute.com
+                  </a>
+                  <a href="mailto:hytglobalinstituteph@gmail.com" className="block text-gray-600 hover:text-blue-900 hover:underline transition">
+                    hytglobalinstituteph@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Other Contact Info */}
             {[
-              {
-                icon: <MailIcon className="w-6 h-6 text-amber-500" />,
-                title: 'Email',
-                content: 'connect@hytglobalinstitute.com,\nadmissions@hytglobalinstitute.com,\nhytglobalinstituteph@gmail.com',
-              },
               {
                 icon: <PhoneIcon className="w-6 h-6 text-emerald-500" />,
                 title: 'Phone',
