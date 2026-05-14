@@ -69,11 +69,17 @@ export default function Hero() {
 
           {/* Slideshow - visible on large screens */}
           <div className="hidden lg:flex lg:w-1/2 items-center justify-center">
-            <img
-              src={hytLogo}
-              alt="HYT Global Institute Inc."
-              className="w-50 h-50 object-cover"
-            />
+            <div className="relative flex items-center justify-center">
+              <div
+                aria-hidden="true"
+                className="absolute inset-8 rounded-full bg-slate-950/35 blur-3xl"
+              />
+              <img
+                src={hytLogo}
+                alt="HYT Global Institute Inc."
+                className="relative z-10 w-50 h-50 -translate-y-3 object-cover drop-shadow-[0_20px_30px_rgba(80,80,80,0.6)]"
+              />
+            </div>
           </div>
         </div>
       </div>
