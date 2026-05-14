@@ -68,7 +68,7 @@ export default function Hero() {
         </div>
 
           {/* Slideshow - visible on large screens */}
-          <div className="hidden lg:block w-full lg:w-1/2">
+          <div className="hidden lg:flex lg:w-1/2 items-center justify-center">
             <img
               src={hytLogo}
               alt="HYT Global Institute Inc."
